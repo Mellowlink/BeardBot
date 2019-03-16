@@ -1,8 +1,4 @@
 class UserSessionsController < ApplicationController
-  def login
-
-  end
-
   def new
     @user_session = UserSession.new
   end
@@ -10,6 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(user_session_params)
     if @user_session.save
+      flash[:success] = "Welcome back!"
       redirect_to account_url
     else
       render :action => :new
@@ -18,7 +15,8 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    redirect_to new_user_session_url
+    flash[:success] = "Goodbye!"
+    redirect_to root_path
   end
 
   private
