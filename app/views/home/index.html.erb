@@ -8,42 +8,42 @@
   </div>
   <% end %>
 </div>
+<div class="col-lg-5">
+  <div class="nes-container is-dark with-title">
+    <p class="title">History</p>
+    <section class="message-list" style="color: #212529;">
+      <section class="message -left">
+        <i class="nes-bcrikko"></i>
+        <!-- Balloon -->
+        <div class="nes-balloon from-left">
+          <p>Hello NES.css</p>
+        </div>
+      </section>
 
-<div class="nes-container is-dark with-title">
-  <p class="title">History</p>
-  <section class="message-list" style="color: #212529;">
-    <section class="message -left">
-      <i class="nes-bcrikko"></i>
-      <!-- Balloon -->
-      <div class="nes-balloon from-left">
-        <p>Hello NES.css</p>
-      </div>
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right">
+          <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
     </section>
-
-    <section class="message -right">
-      <!-- Balloon -->
-      <div class="nes-balloon from-right">
-        <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+  </div>
+</div>
+<div class="col-lg-7">
+    <%= image_tag asset_url("beardbot.png"), alt: "BeardBot", class: "img-thumbnail center-block" %>
+  <div class="nes-container is-dark with-title">
+    <p class="title">BeardBot</p>
+    <p id="bot-response">Good morning. Thou hast had a good night's sleep, I hope.</p>
+  </div>
+  <div class="row home-row">
+    <div class="col-lg-12">
+      <div class="input-group">
+        <input id="query" type="text" class="form-control" placeholder="Say something to BeardBot...">
+        <span class="input-group-btn">
+          <button id="talk" class="btn btn-default" type="button">Talk</button>
+        </span>
       </div>
-      <i class="nes-bcrikko"></i>
-    </section>
-  </section>
-</div>
-<div class="nes-container is-dark">
-  <%= image_tag asset_url("beardbot.png"), alt: "BeardBot", class: "img-square center-block" %>
-</div>
-
-<div class="nes-container is-dark with-title">
-  <p class="title">BeardBot</p>
-  <p id="bot-response">Good morning. Thou hast had a good night's sleep, I hope.</p>
-</div>
-<div class="row home-row">
-  <div class="col-lg-12">
-    <div class="input-group">
-      <input id="query" type="text" class="form-control" placeholder="Say something to BeardBot...">
-      <span class="input-group-btn">
-        <button id="talk" class="btn btn-default" type="button">Talk</button>
-      </span>
     </div>
   </div>
 </div>
