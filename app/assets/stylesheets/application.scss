@@ -16,3 +16,11 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar{
+  border-radius: 0px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: white;
+}

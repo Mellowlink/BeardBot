@@ -29,7 +29,7 @@ class User < ApplicationRecord
       if: :will_save_change_to_email?
     }
 
-  validates :login,
+  validates :username,
     format: {
       with: LOGIN,
       message: proc {
@@ -42,7 +42,7 @@ class User < ApplicationRecord
     length: { within: 3..100 },
     uniqueness: {
       case_sensitive: false,
-      if: :will_save_change_to_login?
+      if: :will_save_change_to_username?
     }
 
   validates :password,

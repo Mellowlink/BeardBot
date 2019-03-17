@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_012934) do
+ActiveRecord::Schema.define(version: 2019_03_17_052932) do
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
     t.string "email"
     t.string "crypted_password"
     t.string "password_salt"
@@ -26,11 +27,13 @@ ActiveRecord::Schema.define(version: 2019_03_16_012934) do
     t.datetime "last_login_at"
     t.string "current_login_ip"
     t.string "last_login_ip"
-    t.boolean "active", default: false
-    t.boolean "approved", default: false
-    t.boolean "confirmed", default: false
+    t.boolean "active", default: true
+    t.boolean "approved", default: true
+    t.boolean "confirmed", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin", default: false
+    t.boolean "is_owner", default: false
     t.index ["perishable_token"], name: "index_users_on_perishable_token", unique: true
     t.index ["persistence_token"], name: "index_users_on_persistence_token", unique: true
     t.index ["single_access_token"], name: "index_users_on_single_access_token", unique: true

@@ -1,10 +1,17 @@
 <div class="jumbotron">
-<div class="container">
-  <h1>Welcome to BeardBot!</h1>
-  <p>Sign up to get started.</p>
-  <p>
-    <%= link_to new_user_path, class: 'btn btn-primary btn-lg' do %>
-      Sign Up &raquo;
-    <% end %>
-  </p>
+  <div class="container">
+  <% if current_user %>
+    <div class="page-header"><h1>Welcome back!</h1></div>
+
+    <h2>You'll be able to chat to BeardBot here in the near future.</h2>
+  <% else %>
+    <h1>Welcome to BeardBot!</h1>
+    <p>Sign up to get started.</p>
+    <p>
+      <%= link_to new_user_path, class: 'btn btn-primary btn-lg' do %>
+        Sign Up &raquo;
+      <% end %>
+    </p>
+  <% end %>
+  </div>
 </div>
