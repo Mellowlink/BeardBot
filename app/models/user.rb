@@ -39,7 +39,7 @@ class User < ApplicationRecord
         )
       }
     },
-    length: { within: 3..100 },
+    length: { within: 3..20 },
     uniqueness: {
       case_sensitive: false,
       if: :will_save_change_to_username?

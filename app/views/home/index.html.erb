@@ -1,17 +1,49 @@
-<div class="jumbotron">
-  <div class="container">
-  <% if current_user %>
-    <div class="page-header"><h1>Welcome back!</h1></div>
-
-    <h2>You'll be able to chat to BeardBot here in the near future.</h2>
-  <% else %>
-    <h1>Welcome to BeardBot!</h1>
-    <p>Sign up to get started.</p>
-    <p>
-      <%= link_to new_user_path, class: 'btn btn-primary btn-lg' do %>
-        Sign Up &raquo;
-      <% end %>
-    </p>
+<div class="container">
+  <% if !current_user %>
+  <div class="alert alert-info">
+    <%= link_to new_user_path, class: 'nes-btn is-primary' do %>
+      Sign Up &raquo;
+    <% end %>
+    for a free account to track your conversations!
+  </div>
   <% end %>
+</div>
+
+<div class="nes-container is-dark with-title">
+  <p class="title">History</p>
+  <section class="message-list" style="color: #212529;">
+    <section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div class="nes-balloon from-left">
+        <p>Hello NES.css</p>
+      </div>
+    </section>
+
+    <section class="message -right">
+      <!-- Balloon -->
+      <div class="nes-balloon from-right">
+        <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+      </div>
+      <i class="nes-bcrikko"></i>
+    </section>
+  </section>
+</div>
+<div class="nes-container is-dark">
+  <%= image_tag asset_url("beardbot.png"), alt: "BeardBot", class: "img-square center-block" %>
+</div>
+
+<div class="nes-container is-dark with-title">
+  <p class="title">BeardBot</p>
+  <p id="bot-response">Good morning. Thou hast had a good night's sleep, I hope.</p>
+</div>
+<div class="row home-row">
+  <div class="col-lg-12">
+    <div class="input-group">
+      <input id="query" type="text" class="form-control" placeholder="Say something to BeardBot...">
+      <span class="input-group-btn">
+        <button id="talk" class="btn btn-default" type="button">Talk</button>
+      </span>
+    </div>
   </div>
 </div>

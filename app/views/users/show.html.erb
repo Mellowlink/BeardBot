@@ -1,7 +1,7 @@
 <div class="jumbotron">
-  <div class="container"><h2>Hey <strong><%= current_user.username %></strong>, here's some info about you...</h2>
+  <div class="container"><h3>Hey <strong><%= current_user.username %></strong>, here's some info about you...</h3>
     <div class="well well-lg">
-      <ul>
+      <ul class="nes-list is-circle">
         <li>Member since: <%= current_user.created_at %></li>
         <li><a href="#">Conversation History</a></li>
         <li>Login count: <%= current_user.login_count %></li>
