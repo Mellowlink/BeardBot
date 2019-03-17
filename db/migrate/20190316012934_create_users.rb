@@ -1,6 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
+      t.string    :username
+
       # Authlogic::ActsAsAuthentic::Email
       t.string    :email
 
@@ -30,9 +32,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string    :last_login_ip
 
       # See "Magic States" in Authlogic::Session::Base
-      t.boolean   :active, default: false
-      t.boolean   :approved, default: false
-      t.boolean   :confirmed, default: false
+      t.boolean   :active, default: true
+      t.boolean   :approved, default: true
+      t.boolean   :confirmed, default: true
 
       t.timestamps
     end

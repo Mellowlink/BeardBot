@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   acts_as_authentic do |c|
-    c.validate_email_field = false
-    c.validate_login_field = false
-    c.validate_password_field = false
+    c.crypto_provider = Authlogic::CryptoProviders::Sha512
   end
 
   EMAIL = /
@@ -31,7 +29,7 @@ class User < ApplicationRecord
       if: :will_save_change_to_email?
     }
 
-  validates :login,
+  validates :username,
     format: {
       with: LOGIN,
       message: proc {
@@ -44,7 +42,7 @@ class User < ApplicationRecord
     length: { within: 3..100 },
     uniqueness: {
       case_sensitive: false,
-      if: :will_save_change_to_login?
+      if: :will_save_change_to_username?
     }
 
   validates :password,

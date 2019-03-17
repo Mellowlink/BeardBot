@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <div class="container"><h2>Hey <strong><%= current_user.username %></strong>, here's some info about you...</h2>
+    <div class="well well-lg">
+      <ul>
+        <li>Member since: <%= current_user.created_at %></li>
+        <li><a href="#">Conversation History</a></li>
+        <li>Login count: <%= current_user.login_count %></li>
+        <li>Failed login count: <%= current_user.failed_login_count %></li>
+        <li>Last request: <%= current_user.last_request_at %></li>
+        <li>Current login at: <%= current_user.current_login_at %></li>
+        <li>Last login at: <%= current_user.last_login_at %></li>
+        <li>Current login IP: <%= current_user.current_login_ip %></li>
+        <li>Last login IP: <%= current_user.last_login_ip %></li>
+      </ul>
+    </div>
+  </div>
+</div>
