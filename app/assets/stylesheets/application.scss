@@ -16,7 +16,9 @@
  *= require_tree .
  *= require_self
  */
-
+body{
+  background-image: url("beardbotcave.png");
+}
 .navbar{
   border-radius: 0px;
 }
@@ -24,8 +26,78 @@
 .navbar-inverse .navbar-brand {
   color: white;
 }
-
+.nes-container{
+  min-width: 386px !important;
+  max-width: 720px !important;
+  margin: 4px auto !important;
+}
+.large-container{
+  display: table;
+  max-width: 1116px !important;
+}
 .nes-container.with-title>.title{
       margin: -1.9rem 0 1rem !important;
       font-size: 16px !important;
+}
+
+.nes-container.with-title.is-centered>.title {
+    margin: -2rem auto 1rem!important;
+}
+
+.nes-container label{
+  font-weight: 100;
+  margin-top: 20px;
+}
+
+.message-list .message .nes-balloon {
+    max-width: 550px;
+}
+
+.message-list .message {
+    display: flex;
+    margin-top: 2rem;
+}
+.message-list .message.-left img {
+    margin-right: 2rem !important;
+}
+.message-list .message.-right img {
+    margin-left: 2rem !important;
+}
+.message-list .message img {
+    align-self: flex-end !important;
+}
+
+.nes-beardbot {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.message-list{
+  position: absolute;
+  bottom: 0;
+}
+
+.message-list .message.-left {
+    align-self: flex-start !important;
+}
+
+.message-list .message.-right {
+    align-self: flex-end !important;
+    margin-right: 20px;
+}
+
+.msg-history{
+  min-height: 720px;
+  max-height: 800px;
+}
+
+.msg-history>:last-child{
+  margin-bottom:20px !important;
+}
+
+.beardbot-avatar{
+  min-width: 300px !important;
+  max-width: 300px !important;
 }

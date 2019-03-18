@@ -18,9 +18,11 @@
         <div id="navbar">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'About', root_path %></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if current_user %>
+              <% if current_user.is_admin %><li><%= link_to 'Admin', account_path, method: :get %></li><% end %>
               <li><%= link_to 'My Account', account_path, method: :get %></li>
               <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
             <% else %>

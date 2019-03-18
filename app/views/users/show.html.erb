@@ -1,16 +1,26 @@
-<div class="jumbotron">
-  <div class="container"><h3>Hey <strong><%= current_user.username %></strong>, here's some info about you...</h3>
-    <div class="well well-lg">
-      <ul class="nes-list is-circle">
-        <li>Member since: <%= current_user.created_at %></li>
-        <li><a href="#">Conversation History</a></li>
-        <li>Login count: <%= current_user.login_count %></li>
-        <li>Failed login count: <%= current_user.failed_login_count %></li>
-        <li>Last request: <%= current_user.last_request_at %></li>
-        <li>Current login at: <%= current_user.current_login_at %></li>
-        <li>Last login at: <%= current_user.last_login_at %></li>
+<div class="nes-container is-dark large-container">
+  <div class="col-lg-4">
+    <div class="nes-container is-dark with-title is-centered">
+      <p class="title"><%= current_user.username %></p>
+      Visits: <%= current_user.login_count %>
+    </div>
+    <div class="nes-container is-dark is-centered">
+      <button href="#" class="nes-btn is-primary">Conversations</button>
+      <button href="#" class="nes-btn is-warning">Lost Password</button>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="nes-container is-dark with-title pull-right">
+      <p class="title">Stats</p>
+      <ul class="nes-list is-circle is-dark">
+        <li>Joined: <%= current_user.created_at %></li>
+        <li>This visit: <%= current_user.current_login_at %></li>
+        <li>Last visit: <%= current_user.last_login_at %></li>
         <li>Current login IP: <%= current_user.current_login_ip %></li>
         <li>Last login IP: <%= current_user.last_login_ip %></li>
+        <!-- <li>Login count: <%= current_user.login_count %></li> -->
+        <!-- <li>Failed login count: <%= current_user.failed_login_count %></li> -->
+        <!-- <li>Last request: <%= current_user.last_request_at %></li> -->
       </ul>
     </div>
   </div>

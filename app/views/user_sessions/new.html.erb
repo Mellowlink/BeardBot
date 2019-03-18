@@ -4,7 +4,10 @@
     Sign Up &raquo;
   <% end %>
 </div>
-<div class="page-header"><h2>Sign In</h2></div>
+
+
+<div class="nes-container is-dark with-title">
+  <p class="title">Sign In</p>
 
 <%= form_for @user_session do |f| %>
   <%= render 'shared/errors', object: @user_session %>
@@ -24,5 +27,13 @@
     <%= f.check_box :remember_me %>
   </div>
 
+  <div style="background-color:#212529; padding: 1rem 0;">
+  <label>
+    <input type="checkbox" class="nes-checkbox is-dark" checked />
+    <span>fdfgdfg</span>
+  </label>
+</div>
+
   <%= f.submit "Log in!", class: 'nes-btn' %>
 <% end %>
+</div>
