@@ -11,49 +11,81 @@
 <div class="col-lg-5">
   <div class="nes-container is-dark with-title msg-history">
     <p class="title">History</p>
-    <section class="message-list" style="color: #212529;">
-      <section class="message -left">
-        <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
-        <!-- Balloon -->
-        <div class="nes-balloon from-left">
-          <p>Hello NES.css</p>
-        </div>
-      </section>
+    <div class="scrollable">
+      <section data-simplebar data-simplebar-auto-hide="false" class="message-list">
+        <section class="message -left">
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+          <!-- Balloon -->
+          <div class="nes-balloon from-left">
+            <p>Hello NES.css</p>
+          </div>
+        </section>
 
-      <section class="message -right">
-        <!-- Balloon -->
-        <div class="nes-balloon from-right">
-          <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
-        </div>
-        <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
-      </section>
-      <section class="message -left">
-        <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
-        <!-- Balloon -->
-        <div class="nes-balloon from-left">
-          <p>Hello NES.css</p>
-        </div>
-      </section>
+        <section class="message -right">
+          <!-- Balloon -->
+          <div class="nes-balloon from-right">
+            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+          </div>
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+        </section>
+        <section class="message -left">
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+          <!-- Balloon -->
+          <div class="nes-balloon from-left">
+            <p>Hello NES.css</p>
+          </div>
+        </section>
 
-      <section class="message -right">
-        <!-- Balloon -->
-        <div class="nes-balloon from-right">
-          <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
-        </div>
-        <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+        <section class="message -right">
+          <!-- Balloon -->
+          <div class="nes-balloon from-right">
+            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+          </div>
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+        </section>
+        <section class="message -left">
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+          <!-- Balloon -->
+          <div class="nes-balloon from-left">
+            <p>Hello NES.css</p>
+          </div>
+        </section>
+
+        <section class="message -right">
+          <!-- Balloon -->
+          <div class="nes-balloon from-right">
+            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+          </div>
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+        </section>
+        <section class="message -left">
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+          <!-- Balloon -->
+          <div class="nes-balloon from-left">
+            <p>Hello NES.css</p>
+          </div>
+        </section>
+
+        <section class="message -right">
+          <!-- Balloon -->
+          <div class="nes-balloon from-right">
+            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+          </div>
+          <%= image_tag asset_url("beardbotsmall.png"), alt: "BB", class:"nes-beardbot" %>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 <div class="col-lg-7">
   <div class="nes-container is-dark beardbot-avatar">
     <%= image_tag asset_url("beardbot.png"), alt: "BeardBot", class: "img-square center-block" %>
   </div>
-  <div class="nes-container is-dark with-title">
+  <div class="nes-container is-dark with-title beardbot-speech">
     <p class="title">BeardBot</p>
     <p id="bot-response">Good morning. Thou hast had a good night's sleep, I hope.</p>
   </div>
-  <div class="nes-container is-dark">
+  <div class="nes-container is-dark user-speech">
     <div class="input-group center">
       <span class="text-nowrap">
         <input id="query" type="text" class="nes-input is-dark" placeholder="Say something to BeardBot...">
@@ -61,5 +93,4 @@
       </span>
     </div>
   </div>
-
 </div>

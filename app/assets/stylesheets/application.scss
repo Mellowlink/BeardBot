@@ -19,6 +19,13 @@
 body{
   background-image: url("beardbotcave.png");
 }
+.alert{
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .navbar{
   border-radius: 0px;
 }
@@ -75,8 +82,13 @@ body{
 }
 
 .message-list{
+  max-height: 647px;
   position: absolute;
   bottom: 0;
+  margin-bottom:20px;
+  color: #212529;
+  overflow-y: auto;
+  overflow-x: visible;
 }
 
 .message-list .message.-left {
@@ -97,7 +109,46 @@ body{
   margin-bottom:20px !important;
 }
 
+.beardbot-speech{
+  min-height: 240px;
+  min-width: 300px !important;
+  max-width: 646px !important;
+}
+
 .beardbot-avatar{
   min-width: 300px !important;
   max-width: 300px !important;
+}
+
+.user-speech{
+  min-width: 300px !important;
+  max-width: 646px !important;
+  margin-top: 91px !important;
+}
+
+.scrollable{
+  overflow-x: visible;
+  overflow-y: hidden;
+  height: 647px;
+  max-height: 647px;
+}
+
+.simplebar-scrollbar{
+  background-color: white;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  background-color: white;
+}
+
+@media screen and (max-width: 1199px){
+  .beardbot-avatar{
+    display: none;
+  }
+  .beardbot-speech{
+    display: none;
+  }
+
+  .user-speech{
+    margin-top: 10px !important;
+  }
 }
