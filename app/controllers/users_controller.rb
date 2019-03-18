@@ -6,10 +6,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
-      flash[:success] = "Account registered!"
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def show
+    if !current_user
+      redirect_to root_path
     end
   end
 

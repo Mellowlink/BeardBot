@@ -22,17 +22,12 @@
     <%= f.password_field :password, class: 'nes-input is-dark' %>
   </div>
 
-  <div class="nes-field">
-    <%= f.label :remember_me %>
-    <%= f.check_box :remember_me %>
-  </div>
-
   <div style="background-color:#212529; padding: 1rem 0;">
-  <label>
-    <input type="checkbox" class="nes-checkbox is-dark" checked />
-    <span>fdfgdfg</span>
-  </label>
-</div>
+    <label style="margin-left:14px;">
+      <%= f.check_box :remember_me, class:"nes-checkbox is-dark" %>
+      <span>Remember Me</span>
+    </label>
+  </div>
 
   <%= f.submit "Log in!", class: 'nes-btn' %>
 <% end %>
