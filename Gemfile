@@ -60,4 +60,6 @@ gem 'bootstrap-sass'
 
 gem 'authlogic'
 
-#gem 'programr'
+gem 'programr'
+
+gem 'jquery-rails'

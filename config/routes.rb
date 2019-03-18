@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   get '/account', to: 'users#show', as: :account
 
+  get '/chat', to: 'beardbot#chat'
+
   root 'home#index'
 end
