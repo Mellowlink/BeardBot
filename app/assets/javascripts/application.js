@@ -21,7 +21,7 @@ $(document).ready(function(){
   $('#talk').on('click', function(event) {
 
     $('.simplebar-content').append('<section class="message -right"><div class="nes-balloon from-right"><p>'+$('#query').val()+'</p></div><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image></section>');
-
+    $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
     event.preventDefault();
     $.ajax({
       url: '/chat',
@@ -32,6 +32,7 @@ $(document).ready(function(){
         $('#bot-response').html(data['response']);
         $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+data['response']+'</p></div></section>');
         $('#query').val('');
+        $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
       }
     });
   });
