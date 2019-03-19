@@ -30,7 +30,7 @@ ready = function(){
         type: 'json',
         method: 'post',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-        data: { text: yourMessage, sent: new Date().getTime(), is_beardbot: false },
+        data: { text: yourMessage, is_beardbot: false },
         success: function(data) {
           $.ajax({
             url: '/chat',
@@ -38,11 +38,19 @@ ready = function(){
             method: 'get',
             data: { query: yourMessage },
             success: function(data) {
-              //start post to beardbot msg create
-                $('#bot-response').html(data['response']);
-                $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+data['response']+'</p></div></section>');
-                $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
-              //end post to user msg create
+              var reply = data['response']
+              $.ajax({
+                url: '/msg',
+                type: 'json',
+                method: 'post',
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                data: { text: reply, is_beardbot: true },
+                success: function(data) {
+                  $('#bot-response').html(reply);
+                  $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+reply+'</p></div></section>');
+                  $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
+}
+              });
             }
           });
         }
