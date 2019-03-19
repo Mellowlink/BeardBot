@@ -1,0 +1,14 @@
+<div class="nes-container is-dark with-title">
+  <p class="title">Password Reset</p>
+
+<%= form_for @password_reset do |f| %>
+  <%= render 'shared/errors', object: @password_reset %>
+
+  <div class="nes-field">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'nes-input is-dark' %>
+  </div>
+
+  <%= f.submit "Recover!", class: 'nes-btn is-success' %>
+<% end %>
+</div>
