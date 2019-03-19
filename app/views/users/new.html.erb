@@ -1,27 +1,29 @@
-<div class="page-header"><h1>Register</h1></div>
+<div class="nes-container is-dark with-title">
+  <p class="title">Register</p>
 
 <%= form_for @user do |f| %>
   <%= render 'shared/errors', object: @user %>
 
-  <div class="form-group">
+  <div class="nes-field">
     <%= f.label :username %>
-    <%= f.text_field :username, class: 'form-control' %>
+    <%= f.text_field :username, class: 'nes-input is-dark', maxlength:20 %>
   </div>
 
-  <div class="form-group">
+  <div class="nes-field">
     <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+    <%= f.email_field :email, class: 'nes-input is-dark' %>
   </div>
 
-  <div class="form-group">
+  <div class="nes-field">
     <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
+    <%= f.password_field :password, class: 'nes-input is-dark' %>
   </div>
 
-  <div class="form-group">
+  <div class="nes-field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
+    <%= f.password_field :password_confirmation, class: 'nes-input is-dark' %>
   </div>
 
-  <%= f.submit 'Register', class: 'btn btn-primary btn-lg' %>
+  <%= f.submit 'Register', class: 'nes-btn is-primary', style:"margin-top: 16px;" %>
 <% end %>
+</div>

@@ -14,3 +14,49 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+
+var ready;
+ready = function(){
+  $('#talk').on('click', function(event) {
+    if ($('#query').val().trim() != ""){
+      var yourMessage = $('#query').val().trim();
+      event.preventDefault();
+      $('.simplebar-content').append('<section class="message -right"><div class="nes-balloon from-right"><p>'+$('#query').val()+'</p></div><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image></section>');
+      $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
+      $('#query').val('');
+      $.ajax({
+        url: '/msg',
+        type: 'json',
+        method: 'post',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: { text: yourMessage, is_beardbot: false },
+        success: function(data) {
+          $.ajax({
+            url: '/chat',
+            type: 'json',
+            method: 'get',
+            data: { query: yourMessage },
+            success: function(data) {
+              var reply = data['response']
+              $.ajax({
+                url: '/msg',
+                type: 'json',
+                method: 'post',
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                data: { text: reply, is_beardbot: true },
+                success: function(data) {
+                  $('#bot-response').html(reply);
+                  $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+reply+'</p></div></section>');
+                  $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
+}
+              });
+            }
+          });
+        }
+      });
+    }
+    });
+  }
+
+$(document).on('turbolinks:load', ready);

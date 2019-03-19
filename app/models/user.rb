@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :conversations
+
   acts_as_authentic do |c|
     c.crypto_provider = Authlogic::CryptoProviders::Sha512
   end
@@ -39,7 +41,7 @@ class User < ApplicationRecord
         )
       }
     },
-    length: { within: 3..100 },
+    length: { within: 3..20 },
     uniqueness: {
       case_sensitive: false,
       if: :will_save_change_to_username?
@@ -56,4 +58,10 @@ class User < ApplicationRecord
       minimum: 8,
       if: :require_password?
   }
+
+  def deliver_password_reset_instructions!
+    reset_perishable_token!
+    PasswordResetMailer.reset_email(self).deliver_now
+  end
+
 end

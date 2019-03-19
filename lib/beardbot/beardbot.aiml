@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <aiml version="1.0">
+
+    <category>
+      <pattern>Hey *</pattern>
+      <template>
+        <random>
+        <li>Hello!</li>
+        <li>Hi!</li>
+        <li>Hey!</li>
+        <li>Greetings!</li>
+        <li>Cheers!</li>
+      </random>
+      </template>
+    </category>
+
+
+</aiml>

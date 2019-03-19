@@ -16,6 +16,15 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-image: url("beardbotcave.png");
+}
+.alert{
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 
 .navbar{
   border-radius: 0px;
@@ -23,4 +32,134 @@
 
 .navbar-inverse .navbar-brand {
   color: white;
+}
+.nes-container{
+  min-width: 386px !important;
+  max-width: 720px !important;
+  margin: 4px auto !important;
+}
+.large-container{
+  display: table;
+  max-width: 1116px !important;
+}
+.nes-container.with-title>.title{
+      margin: -1.9rem 0 1rem !important;
+      font-size: 16px !important;
+}
+
+.nes-container.with-title.is-centered>.title {
+    margin: -2rem auto 1rem!important;
+}
+
+.nes-container label{
+  font-weight: 100;
+  margin-top: 20px;
+}
+
+.message-list .message .nes-balloon {
+    max-width: 550px;
+}
+
+.message-list .message {
+    display: flex;
+    margin-top: 2rem;
+}
+.message-list .message.-left img {
+    margin-right: 2rem !important;
+}
+.message-list .message.-right img {
+    margin-left: 2rem !important;
+}
+.message-list .message img {
+    align-self: flex-end !important;
+}
+
+.nes-beardbot {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.message-list{
+  max-height: 647px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom:20px;
+  color: #212529;
+  overflow-y: auto;
+  overflow-x: visible;
+}
+
+.nes-balloon{
+  max-width: 360px !important;
+}
+
+.message-list .message.-left {
+    align-self: flex-start !important;
+}
+
+.message-list .message.-left .nes-balloon{
+    margin-right: 30px;
+}
+
+.message-list .message.-right {
+    align-self: flex-end !important;
+    margin-left: 92px;
+    margin-right: 20px;
+}
+
+.msg-history{
+  min-height: 720px;
+  max-height: 800px;
+}
+
+
+
+.msg-history>:last-child{
+  margin-bottom:20px !important;
+}
+
+.beardbot-speech{
+  min-height: 240px;
+  min-width: 300px !important;
+  max-width: 646px !important;
+}
+
+.beardbot-avatar{
+  min-width: 300px !important;
+  max-width: 300px !important;
+}
+
+.user-speech{
+  min-width: 300px !important;
+  max-width: 646px !important;
+  margin-top: 91px !important;
+}
+
+.scrollable{
+  overflow-x: visible;
+  overflow-y: hidden;
+  height: 647px;
+  max-height: 647px;
+}
+
+.simplebar-scrollbar{
+  background-color: white;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  background-color: white;
+}
+
+@media screen and (max-width: 1199px){
+  .beardbot-avatar{
+    display: none;
+  }
+  .beardbot-speech{
+    display: none;
+  }
+
+  .user-speech{
+    margin-top: 10px !important;
+  }
 }

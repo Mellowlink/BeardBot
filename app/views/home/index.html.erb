@@ -1,17 +1,36 @@
-<div class="jumbotron">
-  <div class="container">
-  <% if current_user %>
-    <div class="page-header"><h1>Welcome back!</h1></div>
-
-    <h2>You'll be able to chat to BeardBot here in the near future.</h2>
-  <% else %>
-    <h1>Welcome to BeardBot!</h1>
-    <p>Sign up to get started.</p>
-    <p>
-      <%= link_to new_user_path, class: 'btn btn-primary btn-lg' do %>
-        Sign Up &raquo;
-      <% end %>
-    </p>
-  <% end %>
+<% if !current_user %>
+<div class="container">
+  <div class="alert alert-info">
+    <%= link_to new_user_path, class: 'nes-btn is-primary' do %>
+      Sign Up &raquo;
+    <% end %>
+    for a free account to track your conversations!
+  </div>
+</div>
+<% end %>
+<div class="col-lg-5">
+  <div class="nes-container is-dark with-title msg-history">
+    <p class="title">History</p>
+    <div class="scrollable">
+      <section data-simplebar data-simplebar-auto-hide="false" class="message-list">
+      </section>
+    </div>
+  </div>
+</div>
+<div class="col-lg-7">
+  <div class="nes-container is-dark beardbot-avatar">
+    <%= image_tag asset_url("beardbot.png"), alt: "BeardBot", class: "img-square center-block" %>
+  </div>
+  <div class="nes-container is-dark with-title beardbot-speech">
+    <p class="title">BeardBot</p>
+    <p id="bot-response"></p>
+  </div>
+  <div class="nes-container is-dark user-speech">
+    <div class="input-group center">
+      <span class="text-nowrap">
+        <input id="query" type="text" class="nes-input is-dark" placeholder="Chat with BeardBot...">
+        <button id="talk" class="nes-btn" type="button">Talk</button>
+      </span>
+    </div>
   </div>
 </div>

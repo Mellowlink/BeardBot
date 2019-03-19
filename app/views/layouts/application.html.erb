@@ -4,23 +4,30 @@
     <title>BeardBot</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+<script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
+<!-- or -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
   </head>
 
   <body>
     <nav class="navbar navbar-inverse">
-      <div class="container">
         <div class="navbar-header">
           <%= link_to 'BeardBot', root_path, class: 'navbar-brand' %>
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'About', root_path %></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if current_user %>
+              <% if current_user.is_admin %><li><%= link_to 'Admin', account_path, method: :get %></li><% end %>
               <li><%= link_to 'My Account', account_path, method: :get %></li>
               <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
             <% else %>
@@ -28,16 +35,8 @@
             <% end %>
           </ul>
         </div>
-      </div>
+
     </nav>
-
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
-        </div>
-      <% end %>
-
     <%= yield %>
   </body>
 </html>
