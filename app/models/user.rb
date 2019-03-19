@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :conversations
+
   acts_as_authentic do |c|
     c.crypto_provider = Authlogic::CryptoProviders::Sha512
   end
@@ -56,4 +58,5 @@ class User < ApplicationRecord
       minimum: 8,
       if: :require_password?
   }
+
 end

@@ -20,19 +20,31 @@ var ready;
 ready = function(){
   $('#talk').on('click', function(event) {
     if ($('#query').val().trim() != ""){
+      var yourMessage = $('#query').val().trim();
+      event.preventDefault();
       $('.simplebar-content').append('<section class="message -right"><div class="nes-balloon from-right"><p>'+$('#query').val()+'</p></div><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image></section>');
       $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
-      event.preventDefault();
+      $('#query').val('');
       $.ajax({
-        url: '/chat',
+        url: '/msg',
         type: 'json',
-        method: 'get',
-        data: { query: $('#query').val().trim() },
+        method: 'post',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: { text: yourMessage, sent: new Date().getTime(), is_beardbot: false },
         success: function(data) {
-          $('#bot-response').html(data['response']);
-          $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+data['response']+'</p></div></section>');
-          $('#query').val('');
-          $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
+          $.ajax({
+            url: '/chat',
+            type: 'json',
+            method: 'get',
+            data: { query: yourMessage },
+            success: function(data) {
+              //start post to beardbot msg create
+                $('#bot-response').html(data['response']);
+                $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+data['response']+'</p></div></section>');
+                $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
+              //end post to user msg create
+            }
+          });
         }
       });
     }
