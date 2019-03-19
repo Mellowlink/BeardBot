@@ -91,12 +91,21 @@ body{
   overflow-x: visible;
 }
 
+.nes-balloon{
+  max-width: 360px !important;
+}
+
 .message-list .message.-left {
     align-self: flex-start !important;
 }
 
+.message-list .message.-left .nes-balloon{
+    margin-right: 30px;
+}
+
 .message-list .message.-right {
     align-self: flex-end !important;
+    margin-left: 92px;
     margin-right: 20px;
 }
 
@@ -105,9 +114,7 @@ body{
   max-height: 800px;
 }
 
-.nes-balloon{
-  max-width: 360px !important;
-}
+
 
 .msg-history>:last-child{
   margin-bottom:20px !important;
