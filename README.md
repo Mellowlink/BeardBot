@@ -1,9 +1,8 @@
-# README
+BeardBot
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic chatbot built in Ruby on Rails to get more familiar with the framework, and right now is very much a work in progress. Language pattern recognition is super rough and there's a scrolling bug for long conversations when you view your conversation history (this is definitely just something stupid I missed with the CSS, which is a separate mess at the moment).
 
-Things you may want to cover:
+A lot of refactoring needs to be done later on but as this is very experimental for me I've kept notes separately and what needs to be reorganised, so don't destroy me for the gratuitous use of !important in my stylesheet :D
 
 * Ruby version: ruby 2.5.3
 
@@ -15,7 +14,7 @@ authlogic 5.0.1
 programr 0.0.2
 jquery-rails 4.3.3
 
-Also, Windows doesn't play nice with sqlite3 so I recommend building this on your choice Linux distro if possible, otherwise you can go with my solution of pointing at a specific git branch (which you can find near the top of my Gemfile. This is poor practice, I don't recommend doing this but for a test project it should be fine)
+Also, Windows doesn't play nice with sqlite3 so I recommend building this on your choice Linux distro if possible, otherwise you can go with my solution of pointing at a specific git branch (which you can find near the top of my Gemfile. This is poor practice, I don't recommend doing this but for a test project it should be fine. I'll be deploying this on a Linux server and removing that for the real production build)
 
 * Configuration
 
