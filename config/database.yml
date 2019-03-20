@@ -26,6 +26,7 @@ test:
 
 production:
   adapter: postgresql
+  uri: <%= ENV.fetch("DB_URI") %>
   database: prod
   pool: 5
   timeout: 5000
