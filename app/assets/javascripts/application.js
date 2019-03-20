@@ -22,7 +22,7 @@ ready = function(){
     if ($('#query').val().trim() != ""){
       var yourMessage = $('#query').val().trim();
       event.preventDefault();
-      $('.simplebar-content').append('<section class="message -right"><div class="nes-balloon from-right"><p>'+$('#query').val()+'</p></div><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image></section>');
+      $('.simplebar-content').append('<section class="message -right"><div class="nes-balloon from-right"><p>'+$('#query').val()+'</p></div><image src="'+image_path('beardbotsmall.png')+'" alt="BB" class="nes-beardbot"></image></section>');
       $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
       $('#query').val('');
       $.ajax({
@@ -47,7 +47,7 @@ ready = function(){
                 data: { text: reply, is_beardbot: true },
                 success: function(data) {
                   $('#bot-response').html(reply);
-                  $('.simplebar-content').append('<section class="message -left"><image src="/assets/beardbotsmall.png" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+reply+'</p></div></section>');
+                  $('.simplebar-content').append('<section class="message -left"><image src="'+image_path('beardbotsmall.png')+'" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+reply+'</p></div></section>');
                   $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
 }
               });

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+  get 'home/show', to: 'home#show', as: :about
 
   resources :users, only: [:new, :create, :update]
   resources :user_sessions, only: [:create, :destroy]
