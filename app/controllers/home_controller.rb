@@ -4,4 +4,7 @@ class HomeController < ApplicationController
       $current_conversation = nil
     end
   end
+
+  def show
+  end
 end

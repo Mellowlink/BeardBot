@@ -118,6 +118,7 @@
 .conversations{
   width: 1116px;
 }
+
 .convo-history{
   height: 596px;
 }
@@ -127,6 +128,15 @@
   text-decoration:none;
 }
 .convo-history a:hover{
+  color: black;
+  background-color:white;
+}
+
+.about a{
+  color: white;
+  text-decoration:none;
+}
+.about a:hover{
   color: black;
   background-color:white;
 }

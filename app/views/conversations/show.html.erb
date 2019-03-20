@@ -9,7 +9,7 @@
       <div class="convo-scrollable">
         <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
           <% @conversations.each do |convo| %>
-          <a id=<%=convo.id%> class="convo-listitem" href="#"><%= convo.start_time.to_formatted_s(:short) %> UTC</a><br>
+          <a id=<%=convo.id%> class="convo-listitem text-clickable" href="#"><%= convo.start_time.to_formatted_s(:short) %> UTC</a><br>
           <% end %>
         </section>
       </div>
@@ -20,7 +20,6 @@
       <p class="title" id="convo-title">History</p>
       <div class="msg-scrollable">
         <section data-simplebar data-simplebar-auto-hide="false" class="message-history-list">
-          <p>YOU: asf</p><p>YOU: asdf</p><p>YOU: hey</p><p>YOU: hey</p><p>BEARDBOT: Sorry, I'm not really sure about that.</p><p>BEARDBOT: Hello!</p><p>BEARDBOT: Cheers!</p><p>YOU: hey</p><p>BEARDBOT: Hi!</p><p>YOU: what happened back there server error?</p><p>BEARDBOT: Sorry, I'm not really sure about that.</p><p>YOU: apparently</p><p>BEARDBOT: Sorry, I don't know enough to respond to that.</p><p>YOU: what about the beer</p><p>BEARDBOT: Hmm, that's not familiar to me.</p><p>YOU: what a shame</p><p>BEARDBOT: I don't think most dwarves know about that.</p><p>YOU: as a dwarf you should know</p><p>BEARDBOT: Hmm, that's not familiar to me.</p><p>YOU: k</p><p>BEARDBOT: Hmm, that's not familiar to me.</p><p>YOU: jkl</p><p>BEARDBOT: Sorry, I don't know enough to respond to that.</p><p>YOU: lololo</p><p>BEARDBOT: Hmm, that's not familiar to me.</p>
         </section>
       </div>
     </div>
