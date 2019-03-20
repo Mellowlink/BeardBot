@@ -14,6 +14,11 @@ class MessagesController < ApplicationController
 
   end
 
+  def msg_history
+    convo = Conversation.find(message_params[:conversation_id]).messages
+    render json: { response: convo.present? ? convo : "This is weird, we didn't find anything" }
+  end
+
   private
   def message_params
     params.permit(:text, :is_beardbot, :conversation_id)

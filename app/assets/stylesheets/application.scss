@@ -114,10 +114,29 @@ body{
   max-height: 800px;
 }
 
-
-
 .msg-history>:last-child{
   margin-bottom:20px !important;
+}
+
+.conversations{
+  width: 1116px;
+}
+.convo-history{
+  height: 596px;
+}
+
+.convo-history a{
+  color: white;
+  text-decoration:none;
+}
+.convo-history a:hover{
+  color: black;
+  background-color:white;
+}
+
+.convo-messages{
+  height: 700px;
+  width: 647px;
 }
 
 .beardbot-speech{
@@ -137,11 +156,18 @@ body{
   margin-top: 91px !important;
 }
 
-.scrollable{
+.msg-scrollable{
   overflow-x: visible;
   overflow-y: hidden;
   height: 647px;
   max-height: 647px;
+}
+
+.convo-scrollable{
+  overflow-x: visible;
+  overflow-y: hidden;
+  height: 540px;
+  max-height: 540px;
 }
 
 .simplebar-scrollbar{

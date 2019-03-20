@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'user_sessions#new', as: :sign_in
 
   get '/account', to: 'users#show', as: :account
+  get '/chathistory', to: 'conversations#show', as: :chat_history
 
   get '/chat', to: 'beardbot#chat'
+  get '/history', to: 'messages#msg_history'
 
   post '/msg', to: 'messages#create'
 
