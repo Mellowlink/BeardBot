@@ -11,9 +11,158 @@
         <li>Hey!</li>
         <li>Greetings!</li>
         <li>Cheers!</li>
+        <li>Hello! Come to ask about our games?</li>
       </random>
       </template>
     </category>
 
+    <category>
+      <pattern>Hello *</pattern>
+      <template>
+        <random>
+        <li>Hello!</li>
+        <li>Hi!</li>
+        <li>Hey!</li>
+        <li>Greetings!</li>
+        <li>Cheers!</li>
+        <li>Hello! Come to ask about our games?</li>
+      </random>
+      </template>
+    </category>
 
+    <category>
+      <pattern>Hi *</pattern>
+      <template>
+        <random>
+        <li>Hello!</li>
+        <li>Hi!</li>
+        <li>Hey!</li>
+        <li>Greetings!</li>
+        <li>Cheers!</li>
+        <li>Hello! Come to ask about our games?</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* beardbot *</pattern>
+      <template>
+        <random>
+        <li>That's me! Well, I'm actually the prince. This program is BeardBot.</li>
+        <li>I'm here to answer your questions! Or at least, I'll try.</li>
+        <li>Yes?</li>
+        <li>What do you need?</li>
+        <li>Whatever you do, don't ask me about my secrets!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* beer *</pattern>
+      <template>
+        <random>
+        <li>Beer? I love beer!</li>
+        <li>There's beer?! Where?!</li>
+        <li>Beer? That reminds me, it's lunchtime!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* games *</pattern>
+      <template>
+        <random>
+        <li>That's right, we make games!</li>
+        <li>Right now, Brave Dwarf is our big one.</li>
+        <li>In Brave Dwarf, you can meet alot more dwarves like me!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* golden beard *</pattern>
+      <template>
+        <random>
+        <li>Brave Dwarf is the flagship title, but we'll make other games too!</li>
+        <li>Yep, this is Golden beard Games! Thanks for visiting!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* goldenbeard *</pattern>
+      <template>
+        <random>
+        <li>Brave Dwarf is the flagship title, but we'll make other games too!</li>
+        <li>Yep, this is Golden beard Games! Thanks for visiting!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* gb games *</pattern>
+      <template>
+        <random>
+        <li>Brave Dwarf is the flagship title, but we'll make other games too!</li>
+        <li>Yep, this is Golden beard Games! Thanks for visiting!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* GBG *</pattern>
+      <template>
+        <random>
+        <li>Brave Dwarf is the flagship title, but we'll make other games too!</li>
+        <li>Yep, this is Golden beard Games! Thanks for visiting!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* Brave Dwarf *</pattern>
+      <template>
+        <random>
+        <li>Looking forward to Brave Dwarf? Me too!</li>
+        <li>We're all excited for Brave Dwarf! Look out for the full trailer soon!</li>
+        <li>Who, me?</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* Dwarf *</pattern>
+      <template>
+        <random>
+        <li>There used to be a lot more of us here...</li>
+        <li>Oh wait, the others were all turned to stone...</li>
+        <li>Want to help me rescue the others? Guess you'll have to buy Brave Dwarf!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* Dwarves *</pattern>
+      <template>
+        <random>
+        <li>There used to be a lot more of us here...</li>
+        <li>Oh wait, the others were all turned to stone...</li>
+        <li>Want to help me rescue the others? Guess you'll have to buy Brave Dwarf!</li>
+      </random>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* secret *</pattern>
+      <template>
+        <random>
+        <li>Want to know a secret? Toss a bomb at the witch's bookshelf!</li>
+        <li>Sorry, I don't have any secrets.</li>
+        <li>Don't buy the Dwarven Shield, check the orc camp first!</li>
+        <li>Nothing today, sorry.</li>
+        <li>Secrets? Who said I have secrets?</li>
+        <li>Isn't finding this cave enough of a secret?</li>
+      </random>
+      </template>
+    </category>
 </aiml>
