@@ -57,6 +57,30 @@ ready = function(){
       });
     }
     });
+
+    $('.convo-listitem').on('click', function(event) {
+      event.preventDefault();
+      $('#convo-title').html($(this).html());
+      $('.message-history-list').html('');
+      $.ajax({
+          url: '/history',
+          type: 'json',
+          method: 'get',
+          data: { conversation_id: this.id },
+          success: function(data) {
+            var list = '';
+            for (var i = 0; i < data['response'].length; i++){
+              if (data['response'][i].is_beardbot){
+                list += '<p>BEARDBOT: '+data['response'][i].text+'</p>';
+              }else{
+                list += '<p>YOU: '+data['response'][i].text+'</p>';
+              }
+            }
+            $('.message-history-list').append(list);
+        }
+      });
+    });
+
   }
 
 $(document).on('turbolinks:load', ready);

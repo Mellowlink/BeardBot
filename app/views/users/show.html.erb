@@ -5,7 +5,7 @@
       Visits: <%= current_user.login_count %>
     </div>
     <div class="nes-container is-dark is-centered">
-      <button href="#" class="nes-btn is-primary">Conversations</button>
+      <%= link_to 'Conversations', chat_history_path, class: "nes-btn is-primary"%>
     </div>
   </div>
   <div class="col-lg-8">
