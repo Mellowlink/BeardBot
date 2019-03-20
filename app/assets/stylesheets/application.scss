@@ -16,6 +16,10 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-image: image-path("rails.png");
+}
+
 .alert{
   max-width: 1000px;
   margin-left: auto;
