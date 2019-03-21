@@ -61,7 +61,7 @@ ready = function(){
     $('.convo-listitem').on('click', function(event) {
       event.preventDefault();
       $('#convo-title').html($(this).html());
-      $('.message-history-list').html('');
+      $('.message-history-list').find('.simplebar-content').html('');
       $.ajax({
           url: '/history',
           type: 'json',
@@ -71,12 +71,12 @@ ready = function(){
             var list = '';
             for (var i = 0; i < data['response'].length; i++){
               if (data['response'][i].is_beardbot){
-                list += '<p>BEARDBOT: '+data['response'][i].text+'</p>';
+                list += '<p style="margin-right: 30px;">BEARDBOT: '+data['response'][i].text+'</p>';
               }else{
-                list += '<p>YOU: '+data['response'][i].text+'</p>';
+                list += '<p style="margin-right: 30px;">YOU: '+data['response'][i].text+'</p>';
               }
             }
-            $('.message-history-list').append(list);
+            $('.message-history-list').find('.simplebar-content').append(list);
         }
       });
     });
