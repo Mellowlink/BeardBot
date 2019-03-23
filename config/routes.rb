@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/chathistory', to: 'conversations#show', as: :chat_history
 
   get '/chat', to: 'beardbot#chat'
-  get '/history', to: 'messages#msg_history'
+  get '/history', to: 'messages#show'
 
   post '/msg', to: 'messages#create'
 
