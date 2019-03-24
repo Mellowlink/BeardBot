@@ -27,16 +27,17 @@
 
     <div class="nes-container is-dark with-title pull-right">
       <p class="title">Permissions</p>
-      <%= form_for :permissions do |p| %>
+      <%= form_for @user do |p| %>
         <div style="background-color:#212529; padding: 1rem 0;">
           <label style="margin-left:14px;">
-            <%= p.check_box :remember_me, class:"nes-checkbox is-dark" %>
+            <%= p.check_box :active, class:"nes-checkbox is-dark" %>
             <span>Active</span>
           </label>
           <label style="margin-left:14px;">
-            <%= p.check_box :remember_me, class:"nes-checkbox is-dark" %>
+            <%= p.check_box :is_admin, class:"nes-checkbox is-dark" %>
             <span>Admin</span>
           </label>
+          <%= p.submit 'Save', class: "nes-btn is-success" %>
         </div>
       <% end %>
     </div>

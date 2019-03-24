@@ -13,6 +13,11 @@
 <!-- or -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
 <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+<% flash.each do |key, value| %>
+  <% if key == 'save' %>
+    <script>alert('<%= value %>');</script>
+  <% end %>
+<% end %>
   </head>
 
   <body style="background-image: url('<%= asset_url("beardbotcave.png") %>');">
