@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
       $current_conversation.end_time = Time.now.utc
       $current_conversation.save
       $current_conversation.messages.create(message_params)
-
   end
 
   def show
