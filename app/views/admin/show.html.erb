@@ -1,0 +1,39 @@
+<div class="nes-container is-dark large-container">
+  <div class="col-lg-6">
+    <div class="nes-container is-dark with-title is-centered">
+      <p class="title">Admin Dashboard</p>
+      <%= link_to 'Users', account_path, class: "nes-btn"%>
+      <%= link_to 'Stats', account_path, class: "nes-btn is-disabled"%>
+      <%= link_to 'Traffic', account_path, class: "nes-btn is-disabled"%>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="nes-container is-dark with-title is-centered admin-dashboard">
+      <p class="title">Users</p>
+      <div class="convo-scrollable">
+        <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
+          <div class="nes-table-responsive">
+            <table class="nes-table is-bordered is-dark"
+              <tr>
+                <th>|-----Username-----|</th>
+                <th>|--Joined--|</th>
+                <th>|--Active--|</th>
+                <th>-</th>
+                <th>-</th>
+              </tr>
+              <% @all_users.each do |user| %>
+              <tr>
+                <td <%= "style=color:yellow;" if user.is_admin? %>><%= user.username %></td>
+                <td><%= user.created_at.to_s[0...10] %></td>
+                <td><%= user.active %></td>
+                <td><%= (link_to 'Edit', view_user_path(:id => user.id), class: "nes-btn") if !user.is_admin || current_user.is_owner %></td>
+                <td><%= (link_to 'Lock', account_path, class: "nes-btn is-error")  if !user.is_admin || current_user.is_owner %></td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

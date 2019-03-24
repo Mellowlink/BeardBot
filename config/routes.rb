@@ -2,6 +2,19 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/show', to: 'home#show', as: :about
 
+  get '/sign_in', to: 'user_sessions#new', as: :sign_in
+  delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
+
+  get '/account', to: 'users#show', as: :account
+  get '/chathistory', to: 'conversations#show', as: :chat_history
+  get '/admin', to: 'admin#show', as: :admin
+  get '/admin/user', to: 'admin#view_user', as: :view_user
+
+  get '/history', to: 'messages#show'
+  get '/chat', to: 'beardbot#chat'
+
+  post '/msg', to: 'messages#create'
+
   resources :users, only: [:new, :create, :update]
   resources :user_sessions, only: [:create, :destroy]
 
@@ -10,17 +23,6 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-
-  delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
-  get '/sign_in', to: 'user_sessions#new', as: :sign_in
-
-  get '/account', to: 'users#show', as: :account
-  get '/chathistory', to: 'conversations#show', as: :chat_history
-
-  get '/chat', to: 'beardbot#chat'
-  get '/history', to: 'messages#msg_history'
-
-  post '/msg', to: 'messages#create'
 
   root 'home#index'
 end

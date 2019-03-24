@@ -1,0 +1,45 @@
+<div class="nes-container is-dark large-container">
+  <div class="col-lg-4">
+    <div class="nes-container is-dark is-centered">
+      <%= link_to 'Back', admin_path, class: "nes-btn"%>
+    </div>
+    <div class="nes-container is-dark with-title is-centered">
+      <p class="title"><%= @user.username %></p>
+      Visits: <%= @user.login_count %>
+    </div>
+    <div class="nes-container is-dark is-centered">
+      <%= link_to 'Conversations', chat_history_path, class: "nes-btn is-primary"%>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="nes-container is-dark with-title pull-right">
+      <p class="title">Stats</p>
+      <ul class="nes-list is-circle is-dark">
+        <li>Joined: <%= @user.created_at %></li>
+        <li>This visit: <%= @user.current_login_at %></li>
+        <li>Last visit: <%= @user.last_login_at %></li>
+        <li>Current login IP: <%= @user.current_login_ip %></li>
+        <li>Last login IP: <%= @user.last_login_ip %></li>
+        <li>Failed logins: <%= @user.failed_login_count %></li>
+        <li>Conversations: <%= @user.conversations.count %></li>
+      </ul>
+    </div>
+
+    <div class="nes-container is-dark with-title pull-right">
+      <p class="title">Permissions</p>
+      <%= form_for @user do |p| %>
+        <div style="background-color:#212529; padding: 1rem 0;">
+          <label style="margin-left:14px;">
+            <%= p.check_box :active, class:"nes-checkbox is-dark" %>
+            <span>Active</span>
+          </label>
+          <label style="margin-left:14px;">
+            <%= p.check_box :is_admin, class:"nes-checkbox is-dark" %>
+            <span>Admin</span>
+          </label>
+          <%= p.submit 'Save', class: "nes-btn is-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
