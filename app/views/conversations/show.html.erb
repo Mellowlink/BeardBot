@@ -8,9 +8,11 @@
       <p class="title">Conversations</p>
       <div class="convo-scrollable">
         <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
-          <% @conversations.each do |convo| %>
-          <a id=<%=convo.id%> class="convo-listitem text-clickable" href="#"><%= convo.start_time.to_formatted_s(:short) %> UTC</a><br>
-          <% end %>
+          
+            <% @conversations.each do |convo| %>
+            <a id=<%=convo.id%> class="convo-listitem text-clickable" href="#"><%= convo.start_time.to_formatted_s(:short) %> UTC</a><br>
+            <% end %>
+          
         </section>
       </div>
     </div>
