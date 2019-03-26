@@ -52,15 +52,15 @@
               <tr>
                 <th>|----|</th>
                 <th>|-Signups-|</th>
-                <th>|-Visits-|</th>
                 <th>|-Chats-|</th>
+                <th>|--Msgs--|</th>
                 <th>|-Avg. Chat Length-|</th>
               </tr>
               <tr>
                 <td>YTD</td>
                 <td><%= @ytd_signups %></td>
-                <td><%= @ytd_visits %></td>
                 <td><%= @ytd_chats %></td>
+                <td><%= @ytd_msgs %></td>
                 <td><%= @ytd_avg_length %></td>
               </tr>
               <tr>
@@ -69,19 +69,20 @@
               <tr>
                 <th>MM/YY</th>
                 <th>|-Signups-|</th>
-                <th>|-Visits-|</th>
                 <th>|-Chats-|</th>
+                <th>|--Msgs--|</th>
                 <th>|-Avg. Chat Length-|</th>
               </tr>
 
+              <% @monthly_map.each do |key, value| %>
               <tr>
-                <td>03/19</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td><%= key %></td>
+                <td><%= value["signups"] %></td>
+                <td><%= value["chats"] %></td>
+                <td><%= value["msgs"] %></td>
+                <td><%= value["avg_length"] %></td>
               </tr>
-
+              <% end %>
             </table>
           </div>
         </section>
