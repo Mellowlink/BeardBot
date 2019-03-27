@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+//= require Chart.bundle
+//= require chartkick
 
 var ready;
 ready = function(){
@@ -73,14 +75,13 @@ ready = function(){
               if (data['response'][i].is_beardbot){
                 list += '<p style="margin-right: 30px;">BEARDBOT: '+data['response'][i].text+'</p>';
               }else{
-                list += '<p style="margin-right: 30px;">YOU: '+data['response'][i].text+'</p>';
+                list += '<p style="margin-right: 30px;">USER: '+data['response'][i].text+'</p>';
               }
             }
             $('.message-history-list').find('.simplebar-content').append(list);
         }
       });
     });
-
   }
 
 $(document).on('turbolinks:load', ready);

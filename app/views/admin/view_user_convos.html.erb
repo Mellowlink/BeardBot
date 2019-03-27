@@ -1,18 +1,18 @@
 <div class="nes-container is-dark large-container conversations">
   <div class="col-lg-4">
     <div class="nes-container is-dark with-title is-centered">
-      <p class="title"><%= current_user.username %></p>
-      <%= link_to 'Back', account_path, class: "nes-btn"%>
+      <p class="title"><%= @username %></p>
+      <%= link_to 'Back', params.has_key?(:id) ? view_user_path(:id => params[:id]) : admin_path, method: :get, class: "nes-btn"%>
     </div>
     <div class="nes-container is-dark with-title is-centered convo-history">
       <p class="title">Conversations</p>
       <div class="convo-scrollable">
         <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
-          
+
             <% @conversations.each do |convo| %>
             <a id=<%=convo.id%> class="convo-listitem text-clickable" href="#"><%= convo.start_time.to_formatted_s(:short) %> UTC</a><br>
             <% end %>
-          
+
         </section>
       </div>
     </div>

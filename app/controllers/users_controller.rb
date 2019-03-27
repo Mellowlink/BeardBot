@@ -26,6 +26,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
 
       if @user.update(user_params)
+        @user.persistence_token = ''
+        @user.save #force reset of persistence token
         flash[:save] = "User successfully saved!"
         redirect_to view_user_path(:id => @user.id)
       else

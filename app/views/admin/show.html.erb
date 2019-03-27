@@ -2,19 +2,26 @@
   <div class="col-lg-6">
     <div class="nes-container is-dark with-title is-centered">
       <p class="title">Admin Dashboard</p>
-      <%= link_to 'Users', account_path, class: "nes-btn"%>
-      <%= link_to 'Stats', account_path, class: "nes-btn is-disabled"%>
-      <%= link_to 'Traffic', account_path, class: "nes-btn is-disabled"%>
+      <button id="nav1" class="nes-btn is-primary" onclick="switchPanel(1);">Users</button>
+      <button id="nav2" class="nes-btn" onclick="switchPanel(2);">Stats</button>
+      <button id="nav3" class="nes-btn" onclick="switchPanel(3);">Traffic</button>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="nes-container is-dark with-title is-centered">
+      <p class="title">View</p>
+      <%= (link_to 'Anonymous Chats', view_user_convos_path, class: "nes-btn is-primary") %>
     </div>
   </div>
   <div class="col-lg-12">
-    <div class="nes-container is-dark with-title is-centered admin-dashboard">
+    <div id="users_tab" class="nes-container is-dark with-title is-centered admin-dashboard">
       <p class="title">Users</p>
       <div class="convo-scrollable">
         <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
           <div class="nes-table-responsive">
             <table class="nes-table is-bordered is-dark"
               <tr>
+                <th>ID</th>
                 <th>|-----Username-----|</th>
                 <th>|--Joined--|</th>
                 <th>|--Active--|</th>
@@ -23,14 +30,76 @@
               </tr>
               <% @all_users.each do |user| %>
               <tr>
-                <td <%= "style=color:yellow;" if user.is_admin? %>><%= user.username %></td>
+                <td><%= user.id %></td>
+                <td <%= "style=color:yellow;" if user.is_admin? && user.approved? %>><%= user.username %></td>
                 <td><%= user.created_at.to_s[0...10] %></td>
-                <td><%= user.active %></td>
-                <td><%= (link_to 'Edit', view_user_path(:id => user.id), class: "nes-btn") if !user.is_admin || current_user.is_owner %></td>
-                <td><%= (link_to 'Lock', account_path, class: "nes-btn is-error")  if !user.is_admin || current_user.is_owner %></td>
+                <% if user.approved %>
+                  <td><%= user.active %></td>
+                  <td><%= (link_to 'Edit', view_user_path(:id => user.id), class: "nes-btn") if !user.is_admin || current_user.is_owner %></td>
+                  <td><%= (link_to 'X', lock_user_path(:id => user.id), class: "nes-btn is-error", :data => {:method => 'post', :confirm => 'This action will lock ' + user.username + '\'s account (ID: ' + user.id.to_s + '). This can only be undone by the system administrator. Are you sure you want to do this?'})  if !user.is_admin || current_user.is_owner %></td>
+                <% else %>
+                  <td style="color:red;">LOCKED</td>
+                  <td><%= (link_to '-', '#', class: "nes-btn") if !user.is_admin || current_user.is_owner %></td>
+                  <td><%= (link_to '-', '#', class: "nes-btn is-error") if !user.is_admin || current_user.is_owner %></td>
+                <% end %>
               </tr>
               <% end %>
             </table>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div id="stats_tab" class="nes-container is-dark with-title is-centered admin-dashboard hidden">
+      <p class="title">Stats</p>
+      <div class="convo-scrollable">
+        <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
+          <div class="nes-table-responsive">
+            <table class="nes-table is-bordered is-dark"
+              <tr>
+                <th>|----|</th>
+                <th>|-Signups-|</th>
+                <th>|-Chats-|</th>
+                <th>|--Msgs--|</th>
+                <th>|-Avg. Chat Length-|</th>
+              </tr>
+              <tr>
+                <td>YTD</td>
+                <td><%= @ytd_signups %></td>
+                <td><%= @ytd_chats %></td>
+                <td><%= @ytd_msgs %></td>
+                <td><%= @ytd_avg_length %></td>
+              </tr>
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <th>MM/YY</th>
+                <th>|-Signups-|</th>
+                <th>|-Chats-|</th>
+                <th>|--Msgs--|</th>
+                <th>|-Avg. Chat Length-|</th>
+              </tr>
+
+              <% @monthly_map.each do |key, value| %>
+              <tr>
+                <td><%= key %></td>
+                <td><%= value["signups"] %></td>
+                <td><%= value["chats"] %></td>
+                <td><%= value["msgs"] %></td>
+                <td><%= value["avg_length"] %></td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div id="traffic_tab" class="nes-container is-dark with-title is-centered admin-dashboard hidden">
+      <p class="title">BeardBot Traffic</p>
+      <div class="convo-scrollable">
+        <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
+          <div style="background: #E5E5E5; border-radius: 10px;">
+          <%= line_chart Conversation.group_by_hour_of_day(:start_time, format: "%-l %P UTC").count, xtitle: "Time of Day", ytitle: "Chats", label: "Chats Started", title: "YTD Traffic by Time of Day" , colors: ["#565656"] %>
           </div>
         </section>
       </div>
