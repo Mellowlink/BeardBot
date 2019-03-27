@@ -32,13 +32,12 @@ class AdminController < ApplicationController
       #date of the app's deployment, but hard-coding this is a bit stupid. need to set this up as a proper env variable for reusability
       range_m = 6
       range_y = 2018
+      date = "%s-%s-01" % [range_y.to_s, range_m.to_s.rjust(2, '0')]
+      enddate = ((Date.parse(date) + 1.month) - 1.day).strftime("%F")
 
       while range_y < Time.now.year || range_m <= Time.now.month do
-        puts "Current year: %s" % range_y
-        puts "Current month: %s" % range_m
-        puts '_____'
 
-        con = Conversation.where("created_at >= '%s-%s-01' and created_at <= '%s-%s-31'" % [range_y.to_s, range_m.to_s.rjust(2, '0'), range_y.to_s, range_m.to_s.rjust(2, '0')])
+        con = Conversation.where("created_at >= '%s' and created_at <= '%s'" % [date, enddate])
         total = 0
         con.each do |c| #same as ytd above, find a better way
           total += c.end_time - c.start_time
@@ -51,9 +50,9 @@ class AdminController < ApplicationController
         end
 
         @monthly_map[range_m.to_s.rjust(2, '0') + "/" + range_y.to_s[2..-1]] = {
-          "signups" => User.where("created_at >= '%s-%s-01' and created_at <= '%s-%s-31'" % [range_y.to_s, range_m.to_s.rjust(2, '0'), range_y.to_s, range_m.to_s.rjust(2, '0')]).count.to_s,
+          "signups" => User.where("created_at >= '%s' and created_at <= '%s'" % [date, enddate]).count.to_s,
           "chats" => con.count.to_s,
-          "msgs" => Message.where("created_at >= '%s-%s-01' and created_at <= '%s-%s-31'" % [range_y.to_s, range_m.to_s.rjust(2, '0'), range_y.to_s, range_m.to_s.rjust(2, '0')]).count.to_s,
+          "msgs" => Message.where("created_at >= '%s' and created_at <= '%s'" % [date, enddate]).count.to_s,
           "avg_length" => avg_length}
 
         if range_m == 12
