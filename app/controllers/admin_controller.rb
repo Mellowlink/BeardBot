@@ -32,10 +32,11 @@ class AdminController < ApplicationController
       #date of the app's deployment, but hard-coding this is a bit stupid. need to set this up as a proper env variable for reusability
       range_m = 6
       range_y = 2018
-      date = "%s-%s-01" % [range_y.to_s, range_m.to_s.rjust(2, '0')]
-      enddate = ((Date.parse(date) + 1.month) - 1.day).strftime("%F")
 
       while range_y < Time.now.year || range_m <= Time.now.month do
+
+        date = "%s-%s-01" % [range_y.to_s, range_m.to_s.rjust(2, '0')]
+        enddate = ((Date.parse(date) + 1.month) - 1.day).strftime("%F")
 
         con = Conversation.where("created_at >= '%s' and created_at <= '%s'" % [date, enddate])
         total = 0
