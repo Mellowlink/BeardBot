@@ -77,6 +77,22 @@ class AdminController < ApplicationController
     end
   end
 
+  def view_user_convos
+    if !current_user || !current_user.is_admin
+      redirect_to root_path
+    else
+      if params.has_key?(:id)
+        user = User.find(params[:id])
+        @username = user.username
+        @conversations = user.conversations.reverse
+      else
+        @username = 'Unregistered'
+        @conversations = Conversation.where("user_id IS ?", nil).reverse
+      end
+
+    end
+  end
+
   def lock_user
     if !current_user || !current_user.is_admin
       redirect_to root_path

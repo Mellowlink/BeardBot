@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#show', as: :admin
   post '/admin', to: 'admin#lock_user', as: :lock_user
   get '/admin/user', to: 'admin#view_user', as: :view_user
+  get '/admin/user/convos', to: 'admin#view_user_convos', as: :view_user_convos
 
   get '/history', to: 'messages#show'
   get '/chat', to: 'beardbot#chat'
