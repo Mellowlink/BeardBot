@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+//= require Chart.bundle
+//= require chartkick
 
 var ready;
 ready = function(){
@@ -80,7 +82,6 @@ ready = function(){
         }
       });
     });
-
   }
 
 $(document).on('turbolinks:load', ready);

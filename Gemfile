@@ -68,3 +68,7 @@ gem 'authlogic'
 gem 'programr'
 
 gem 'jquery-rails'
+
+gem "chartkick"
+
+gem 'groupdate'

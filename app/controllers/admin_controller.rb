@@ -6,6 +6,9 @@ class AdminController < ApplicationController
     else
       @all_users = User.all
 
+      #this is alot of logic for a controller, move to a helper class later
+
+      #STATS - Start
       @ytd_signups = User.count
       @ytd_chats = Conversation.count
       @ytd_msgs = Message.count
@@ -62,6 +65,7 @@ class AdminController < ApplicationController
       end
 
       @monthly_map = @monthly_map.to_a.reverse.to_h
+      #STATS - End
     end
   end
 

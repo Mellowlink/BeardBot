@@ -89,18 +89,11 @@
       </div>
     </div>
     <div id="traffic_tab" class="nes-container is-dark with-title is-centered admin-dashboard hidden">
-      <p class="title">Traffic</p>
+      <p class="title">BeardBot Traffic</p>
       <div class="convo-scrollable">
         <section data-simplebar data-simplebar-auto-hide="false" class="convo-list">
-          <div class="nes-table-responsive">
-            <table class="nes-table is-bordered is-dark"
-              <tr>
-                <th>Traffic Table</th>
-              </tr>
-              <tr>
-                <td>Coming Soon!!</td>
-              </tr>
-            </table>
+          <div style="background: #E5E5E5; border-radius: 10px;">
+          <%= line_chart Conversation.group_by_hour_of_day(:start_time, format: "%-l %P UTC").count, xtitle: "Time of Day", ytitle: "Chats", label: "Chats Started", title: "YTD Traffic by Time of Day" , colors: ["#565656"] %>
           </div>
         </section>
       </div>
