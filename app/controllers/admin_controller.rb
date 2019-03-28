@@ -4,7 +4,7 @@ class AdminController < ApplicationController
     if !current_user || !current_user.is_admin
       redirect_to root_path
     else
-      @all_users = User.all
+      @all_users = User.order('id ASC')
 
       #this is alot of logic for a controller, move to a helper class later
 
@@ -84,10 +84,10 @@ class AdminController < ApplicationController
       if params.has_key?(:id)
         user = User.find(params[:id])
         @username = user.username
-        @conversations = user.conversations.reverse
+        @conversations = user.conversations.order('created_at DESC')
       else
         @username = 'Unregistered'
-        @conversations = Conversation.where("user_id IS ?", nil).reverse
+        @conversations = Conversation.where("user_id IS ?", nil).order('created_at DESC')
       end
 
     end
