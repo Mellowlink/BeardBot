@@ -15,6 +15,10 @@ class MessagesController < ApplicationController
 
   def show
     convo = Conversation.find(message_params[:conversation_id]).messages.order('created_at ASC')
+    convo.each {
+      |msg| msg.text.gsub! 'fuck', '****'
+      msg.text.gsub! 'shit', '****'
+    }
     render json: { response: convo.present? ? convo : "This is weird, we didn't find anything" }
   end
 
