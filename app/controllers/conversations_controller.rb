@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
     if !current_user
       redirect_to root_path
     else
-      @conversations = current_user.conversations.reverse
+      @conversations = current_user.conversations.order('created_at DESC')
     end
   end
 end

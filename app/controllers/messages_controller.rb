@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    convo = Conversation.find(message_params[:conversation_id]).messages
+    convo = Conversation.find(message_params[:conversation_id]).messages.order('created_at ASC')
     render json: { response: convo.present? ? convo : "This is weird, we didn't find anything" }
   end
 
