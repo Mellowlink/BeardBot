@@ -12,7 +12,7 @@ module BeardBot
     config.load_defaults 5.2
     config.serve_static_assets = true
 
-    if !Rails.env.production
+    if !Rails.env.production?
       config.before_configuration do
         env_file = File.join(Rails.root, 'config', 'local_env.yml')
         YAML.load(File.open(env_file)).each do |key, value|
