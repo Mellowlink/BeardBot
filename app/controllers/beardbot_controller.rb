@@ -14,10 +14,12 @@ class BeardbotController < ActionController::Base
         http.use_ssl = true
         req = Net::HTTP::Post.new(uri.path, {'Content-Type' =>'application/json',
           'Authorization' => "Bearer " + accessToken})
-        req.body = {"query" => params[:query], "lang" => "en", "sessionId" => "1234asdf"}.to_json
+        req.body = {"query" => params[:query], "lang" => "en", "sessionId" => (1+rand(9998)).to_s}.to_json
+        puts req.to_s #debug
         res = http.request(req)
+        puts res.to_s #debug
         reaction = JSON.parse(res.body)
-
+        puts reaction.to_s #debug
         render json: { response: reaction.present? ? reaction["result"]["speech"] : fallbacks.sample }
     rescue => e
         puts "failed #{e}"
