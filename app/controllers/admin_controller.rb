@@ -74,10 +74,6 @@ class AdminController < ApplicationController
       redirect_to root_path
     else
       @user = User.find(params[:id])
-
-      if @user.is_admin and !current_user.is_owner
-        redirect_to admin_path
-      end
     end
   end
 
