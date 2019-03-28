@@ -36,7 +36,7 @@
                 <% if user.approved %>
                   <td><%= user.active %></td>
                   <% if user.is_admin && !current_user.is_owner %>
-                    <td><%= link_to '-', '#', class: "nes-btn" %></td>
+                    <td><%= link_to 'View', view_user_path(:id => user.id), class: "nes-btn" %></td>
                     <td><%= link_to '-', '#', class: "nes-btn is-error" %></td>
                   <% else %>
                     <td><%= link_to 'Edit', view_user_path(:id => user.id), class: "nes-btn" %></td>
