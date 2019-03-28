@@ -35,12 +35,17 @@
                 <td><%= user.created_at.to_s[0...10] %></td>
                 <% if user.approved %>
                   <td><%= user.active %></td>
-                  <td><%= (link_to 'Edit', view_user_path(:id => user.id), class: "nes-btn") if !user.is_admin || current_user.is_owner %></td>
-                  <td><%= (link_to 'X', lock_user_path(:id => user.id), class: "nes-btn is-error", :data => {:method => 'post', :confirm => 'This action will lock ' + user.username + '\'s account (ID: ' + user.id.to_s + '). This can only be undone by the system administrator. Are you sure you want to do this?'})  if !user.is_admin || current_user.is_owner %></td>
+                  <% if user.is_admin && !current_user.is_owner %>
+                    <td><%= link_to '-', '#', class: "nes-btn" %></td>
+                    <td><%= link_to '-', '#', class: "nes-btn is-error" %></td>
+                  <% else %>
+                    <td><%= link_to 'Edit', view_user_path(:id => user.id), class: "nes-btn" %></td>
+                    <td><%= link_to 'X', lock_user_path(:id => user.id), class: "nes-btn is-error", :data => {:method => 'post', :confirm => 'This action will lock ' + user.username + '\'s account (ID: ' + user.id.to_s + '). This can only be undone by the system administrator. Are you sure you want to do this?'} %></td>
+                  <% end %>
                 <% else %>
                   <td style="color:red;">LOCKED</td>
-                  <td><%= (link_to '-', '#', class: "nes-btn") if !user.is_admin || current_user.is_owner %></td>
-                  <td><%= (link_to '-', '#', class: "nes-btn is-error") if !user.is_admin || current_user.is_owner %></td>
+                  <td><%= link_to '-', '#', class: "nes-btn" %></td>
+                  <td><%= link_to '-', '#', class: "nes-btn is-error" %></td>
                 <% end %>
               </tr>
               <% end %>
