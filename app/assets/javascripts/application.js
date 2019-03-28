@@ -19,6 +19,24 @@
 //= require chartkick
 
 var ready;
+var showText;
+var talking = false;
+
+showText = function (target, message, index, interval) {
+  if (index < message.length) {
+    if (!talking){
+      $('#beardbot-avatar-img').attr('src', image_path('beardbottalking.gif'));
+    }
+    talking = true;
+    $(target).append(message[index++]);
+    setTimeout(function () { showText(target, message, index, interval); }, interval);
+  }
+  else{
+    $('#beardbot-avatar-img').attr('src', image_path('beardbot.png'));
+    talking = false;
+  }
+}
+
 ready = function(){
   $('#talk').on('click', function(event) {
     if ($('#query').val().trim() != ""){
@@ -48,10 +66,13 @@ ready = function(){
                 beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                 data: { text: reply, is_beardbot: true },
                 success: function(data) {
-                  $('#bot-response').html(reply);
+                  $('#bot-response').html('');
+                  $(function () {
+                    showText("#bot-response", reply, 0, 50);
+                  });
                   $('.simplebar-content').append('<section class="message -left"><image src="'+image_path('beardbotsmall.png')+'" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+reply+'</p></div></section>');
                   $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
-}
+                }
               });
             }
           });
