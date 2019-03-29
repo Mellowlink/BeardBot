@@ -25,5 +25,6 @@ TODO:
 - make everything mobile-responsive and look nicer on larger displays. Currently optimized only for maximized windows on 1920x1080 displays
 - add some more useful analytics like most common words, common conversation enders, etc.
 - style the traffic chart differently
+- style the error pages properly
 - add user search
 - enable password reset
