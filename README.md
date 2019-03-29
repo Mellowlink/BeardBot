@@ -18,3 +18,12 @@ Also, Windows doesn't play nice with sqlite3 so I recommend building this on you
 
 * Database creation:
 Run the migrations, the structure is pretty straightforward so you don't need to do anything out of the ordinary.
+
+TODO:
+- clean up CSS, !important is used far too heavily and some classes are redundant
+- refactor conversation history pages into partials, no reason to have 80% identical code between the admin dashboard and the "My Account" versions of the view
+- make everything mobile-responsive and look nicer on larger displays. Currently optimized only for maximized windows on 1920x1080 displays
+- add some more useful analytics like most common words, common conversation enders, etc.
+- style the traffic chart differently
+- add user search
+- enable password reset
