@@ -27,5 +27,6 @@ TODO:
 - add some more useful analytics like most common words, common conversation enders, etc.
 - style the traffic chart differently
 - style the error pages properly
+- BD-themed selectable portrait for user chat
 - add user search
 - enable password reset
