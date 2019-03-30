@@ -42,6 +42,8 @@ ready = function(){
     if ($('#query').val().trim() != ""){
       var yourMessage = $('#query').val().trim();
       event.preventDefault();
+      $('#talk').prop('disabled', true);
+      $('#talk').addClass('is-disabled');
       $('.simplebar-content').append('<section class="message -right"><div class="nes-balloon from-right"><p>'+$('#query').val()+'</p></div><image src="'+image_path('you.png')+'" alt="BB" class="nes-beardbot"></image></section>');
       $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
       $('#query').val('');
@@ -67,9 +69,10 @@ ready = function(){
                 data: { text: reply, is_beardbot: true },
                 success: function(data) {
                   $('#bot-response').html('');
-                  $(function () {
-                    showText("#bot-response", reply, 0, 50);
-                  });
+                  currentReply = reply;
+                  showText("#bot-response", reply, 0, 40);
+                  $('#talk').prop('disabled', false);
+                  $('#talk').removeClass('is-disabled');
                   $('.simplebar-content').append('<section class="message -left"><image src="'+image_path('beardbotsmall.png')+'" alt="BB" class="nes-beardbot"></image><div class="nes-balloon from-left"><p>'+reply+'</p></div></section>');
                   $(".simplebar-content").scrollTop($(".simplebar-content").prop("scrollHeight"));
                 }

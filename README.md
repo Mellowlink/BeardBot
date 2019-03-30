@@ -23,6 +23,7 @@ TODO:
 - clean up CSS, !important is used far too heavily and some classes are redundant
 - refactor conversation history pages into partials, no reason to have 80% identical code between the admin dashboard and the "My Account" versions of the view
 - make everything mobile-responsive and look nicer on larger displays. Currently optimized only for maximized windows on 1920x1080 displays
+- put in a better solution to overlapping responses doing weird things to the typewriter effect
 - add some more useful analytics like most common words, common conversation enders, etc.
 - style the traffic chart differently
 - style the error pages properly
